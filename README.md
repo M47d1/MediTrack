@@ -14,11 +14,9 @@ MediTrack adalah aplikasi Android modern berbasis **Kotlin** yang dirancang untu
 
 
 
-| Halaman Login | Daftar Data Pasien |
+|          Halaman Login            |       Daftar Data Pasien            |
 
-|---|---|
-
-| <img src="login.png" width="300"> | <img src="daboard.png" width="300"> |
+| <img src="login.png" width="300"> | <img src="daboard.png" width="320"> |
 
 
 
