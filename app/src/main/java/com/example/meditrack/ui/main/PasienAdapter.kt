@@ -18,12 +18,31 @@ class PasienAdapter(private val listPasien: List<PasienItem>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pasien = listPasien[position]
-        holder.binding.tvNamaPasien.text = pasien.nama
-        holder.binding.tvAlamat.text = pasien.alamat
 
+        with(holder.binding) {
+            // 1. Logika Inisial Nama (Ambil 1 huruf depan)
+            val inisial = if (!pasien.nama.isNullOrEmpty()) {
+                pasien.nama.trim().take(1).uppercase()
+            } else {
+                "?"
+            }
+            tvInisial.text = inisial
+
+            // 2. Set Nama Pasien
+            tvNamaPasien.text = pasien.nama
+
+            // 3. Set Jenis Kelamin & Tanggal Lahir (Digabung agar rapi)
+            val jk = pasien.jenisKelamin ?: "-"
+            val tgl = pasien.tanggalLahir ?: "-"
+            tvDetailInfo.text = "$jk | $tgl"
+
+            // 4. Set Alamat
+            tvAlamat.text = "Alamat: ${pasien.alamat}"
+
+            // 5. Set No HP
+            tvNoHp.text = "No. HP: ${pasien.noHp ?: "-"}"
+        }
     }
 
-    override fun getItemCount(): Int {
-        return listPasien.size // Pastikan ini bukan return 0
-    }
+    override fun getItemCount(): Int = listPasien.size
 }

@@ -13,12 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        <View
+        <TextView
+            android:id="@+id/tvInisial"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/circle_green" />
+            android:background="@drawable/circle_green"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Z" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -37,12 +44,29 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvDetailInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin | Tgl Lahir"
+                android:textColor="#4CAF50"
+                android:textSize="12sp" />
+
+            <TextView
                 android:id="@+id/tvAlamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat Pasien"
                 android:textColor="#666666"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvNoHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No HP: 08123456789"
+                android:textColor="#666666"
+                android:textSize="13sp" />
+
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

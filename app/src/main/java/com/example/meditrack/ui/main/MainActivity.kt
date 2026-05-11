@@ -49,13 +49,17 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val list = response.body()?.dataPasien
                     if (!list.isNullOrEmpty()) {
+                        // TARUH DI SINI: Update angka total pasien pada Card yang baru kita buat
+                        binding.tvTotalPasien.text = list.size.toString()
+
                         binding.rvPasien.adapter = PasienAdapter(list)
                         Toast.makeText(this@MainActivity, "Berhasil memuat ${list.size} data", Toast.LENGTH_SHORT).show()
                     } else {
+                        // Jika data kosong, set angka jadi 0
+                        binding.tvTotalPasien.text = "0"
                         Toast.makeText(this@MainActivity, "Data Kosong atau Key JSON Salah", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    // Jika error 401 atau 500, akan muncul di sini
                     Toast.makeText(this@MainActivity, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             }
